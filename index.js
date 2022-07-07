@@ -69,10 +69,10 @@ todoList.addEventListener("click", deleteChecked);
 
 // Modification Part
 
-const modification = () => {
-  console.log("ok");
-};
-modificationClass.addEventListener("click", modification);
+// const modification = () => {
+//   console.log("ok");
+// };
+// modificationClass.addEventListener("click", modification);
 
 // Completion
 const completion = (e) => {
