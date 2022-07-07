@@ -103,7 +103,7 @@ form button:hover {
   align-items: center;
   height: 100%;
   position: absolute;
-  width: 5%;
+  width: 6%;
 }
 .todo .status select {
   width: 100%;
@@ -114,11 +114,14 @@ form button:hover {
   background-color: rgb(255, 178, 36);
   border: none;
   border-radius: 5px;
+  padding: 10px;
 }
 .todo .erase-button {
   background-color: rgb(238, 83, 83);
   border: none;
   border-radius: 5px;
   margin: 0 2vw;
+  padding: 10px;
+
 }
 

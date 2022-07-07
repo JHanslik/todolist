@@ -2,10 +2,7 @@
 const todoImput = document.querySelector(".todo-input")
 const todoButton = document.querySelector(".todo-button")
 const todoList = document.querySelector(".todo-list")
-
-// ÉCOUTEURS
-// todoButton.addEventListener("click", onTaskSubmit)
-
+const todoPriority = document.querySelector("#priority")
 // FUNCTIONS
 const onTaskSubmit = (event) => {
     event.preventDefault()
@@ -26,13 +23,13 @@ const onTaskSubmit = (event) => {
 
         // Li creation
         const newTodo = document.createElement("li")
-        newTodo.innerText = "Hey"
+        newTodo.innerText = "hey"
         newTodo.classList.add("todo-item")
         todoDiv.appendChild(newTodo)
 
         // Priority number
         const newPriority = document.createElement("li")
-        newPriority.innerText = `5`
+        newPriority.innerText = todoPriority.value
         newPriority.classList.add("item-priority")
         todoDiv.appendChild(newPriority)
 
@@ -50,4 +47,5 @@ const onTaskSubmit = (event) => {
 
     // ToDo add to the list
     todoList.appendChild(todoDiv)
+    todoPriority.value =""
 }
