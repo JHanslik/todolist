@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
+
+*{
+  font-family: 'Shadows Into Light Two', cursive;
+
+}
+body {
+  font-family: 'Shadows Into Light Two', cursive;
+  background-color: #39B2D9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+
+header {
+  color: white;
+  height: 25vh;
+  font-size: 10vh;
+  display: flex;
+  align-items: center;
+}
+
+main {
+  /* min-height: 80vh; */
+  width: 80%;
+  max-width: 1400px;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 21px 11px rgba(0,0,0,0.71); 
+  box-shadow: 0px 0px 21px 11px rgba(0,0,0,0.71);
+  
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+}
+
+form input{
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: solid 3px black;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  width: 60%;
+}
+form select {
+  padding: 0.47rem;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  border-top: solid 3px black;
+  border-bottom: solid 3px black;
+}
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: solid 3px black;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #39B2D9;
+}
+form button:hover {
+  background-color: #39B2D9;
+  color: white;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 8vh;
+}
+.todo-list {
+  list-style: none;
+  width: 100%;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  border-top: solid 2px black;
+  position: relative;
+}
+.todo .todo-item {
+  width: 80%;
+  margin-left: 15%;
+}
+.todo .item-priority {
+  margin: 0 2vw;
+}
+.todo .status {
+  border-right: solid 2px red;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  width: 5%;
+}
+.todo .status select {
+  width: 100%;
+  border: none;
+  font-size: 20px;
+}
+.todo .modification-button {
+  background-color: rgb(255, 178, 36);
+  border: none;
+  border-radius: 5px;
+}
+.todo .erase-button {
+  background-color: rgb(238, 83, 83);
+  border: none;
+  border-radius: 5px;
+  margin: 0 2vw;
+}
+
