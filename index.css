@@ -66,10 +66,15 @@ form button {
   cursor: pointer;
   transition: all 0.3s ease;
   color: #39B2D9;
+  margin-right: 2vw;
 }
 form button:hover {
   background-color: #39B2D9;
   color: white;
+}
+form #filter {
+  border: solid 3px black;
+  border-radius: 10px;
 }
 
 .todo-container {
@@ -128,4 +133,9 @@ form button:hover {
 .fa-trash,
 .fa-pen-to-square {
   pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
