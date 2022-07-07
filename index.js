@@ -3,10 +3,8 @@ const todoImput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const todoPriority = document.querySelector("#priority");
-
-// TEST LI MODIFICATION
-const modificationClass = document.querySelector("modification-button");
-console.log(modificationClass);
+const filterOption = document.querySelector("filter");
+// const todoStatus = document.querySelector(".status")
 
 // FUNCTIONS
 const onTaskSubmit = (event) => {
@@ -17,13 +15,12 @@ const onTaskSubmit = (event) => {
   todoDiv.classList.add("todo");
 
   // Créer le Select
-  const newSelect = document.createElement("div");
-  newSelect.innerHTML = `<select name="" id="">
-        <option value="todo">To do</option>
+  const newSelect = document.createElement("select");
+  newSelect.innerHTML = `<option value="todo">To do</option>
         <option value="doing">Doing</option>
-        <option value="done">Done (fait)</option>
-    </select>`;
+        <option value="done">Done</option>`;
   newSelect.classList.add("status");
+  newSelect.addEventListener("change", completion);
   todoDiv.appendChild(newSelect);
 
   // Li creation
@@ -76,3 +73,14 @@ const modification = () => {
   console.log("ok");
 };
 modificationClass.addEventListener("click", modification);
+
+// Completion
+const completion = (e) => {
+  console.log(e.target.value);
+  const todo = e.target.parentElement;
+  if (e.target.value === "done") {
+    todo.classList.add("completed");
+  } else {
+    todo.classList.remove("completed");
+  }
+};

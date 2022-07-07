@@ -29,7 +29,12 @@
                     <i class="fa-solid fa-square-plus"></i>
                 </button>
                 <select name="Filter" id="filter">
-                    opt
+                    <option value="">Filters</option>
+                    <option value="Priority">Priority</option>
+                    <option value="To do">To do</option>
+                    <option value="Doing">Doing</option>
+                    <option value="Done">Done</option>
+                    <option value="All">All</option>
                 </select>
             </form>
             <div class="todo-container">
@@ -42,10 +47,8 @@
     </body>
 </html>
 
-<!-- <div>
-    <select name="" id="">
-        <option value="todo">To do (à faire)</option>
-        <option value="doing">To do (à faire)</option>
-        <option value="done">Done (fait)</option>
-    </select>
-</div> -->
+<!-- <select name="" id="">
+    <option value="todo">To do (à faire)</option>
+    <option value="doing">To do (à faire)</option>
+    <option value="done" onselect="completion ()">Done (fait)</option>
+</select> -->
