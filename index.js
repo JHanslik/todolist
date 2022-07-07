@@ -15,7 +15,7 @@ const onTaskSubmit = (event) => {
 
     // ajout valeur au tableau
     tasksArray.push ({task: todoImput.value, priority: todoPriority.value, status:"To do"})
-    console.log (tasksArray)
+    // console.log (tasksArray)
     todoList.innerHTML=""
     tasksArray.forEach ((task, i) => {
         todoDiv = document.createElement("li")
@@ -43,53 +43,72 @@ const onTaskSubmit = (event) => {
         <i class="fa-solid fa-trash-can"></i>
         </button>
         `
+
+        // status function
         const newSelect = document.getElementById(`select-${i}`)
         newSelect.addEventListener("change", (e) => {
             completion (e, i)
+            inProgress(e, i)
         })
-        console.log (tasksArray[i].task)
 
+
+        // delete function
         const delLine = document.getElementById(`erase-${i}`)
-        delLine.addEventListener("click", () => {
-            deleteChecked(i)
+        delLine.addEventListener("click", (e) => {
+            deleteChecked(e, i)
         })
-        console.log()
+
+        // filter function
+        const filter = document.getElementById(`filter-${i}`)
+        filter.addEventListener("change", (e) => {
+          filterTasks(e, i)
+        })
         
-    // Reset de la value
-    
-})
-todoImput.value = "";
-todoPriority.value = ""
-    // console.log (todoDiv)
+        
+    })
+// Reset de la value
+  todoImput.value = "";
+  todoPriority.value = ""
 }
     
 //  Button Part
 
 const deleteChecked = (e, i) => {
-  const item = e.target;
-//   console.log(item);
-  //   Delete Part
-  if (item.classList[0] === "erase-button") {
-    // supprimer toute la barre
-    const todo = item.parentElement;
-    todo.remove();
-    tasksArray[i].remove()
-  }
+  console.log (i)
+  const todo = e.target.parentElement;
+    todo.remove()
+    tasksArray.splice(i, 1)
+    console.log (tasksArray)
+}
   //   modification part
-  if (item.classList[0] === "modification-button") {
-    const modification = item.parentNode.childNodes[1];
-    console.log(modification);
+  // if (item.classList[0] === "modification-button") {
+  //   const modification = item.parentNode.childNodes[1];
+  //   console.log(modification);
 
-  }
-};
+  
+// };
 
 const completion = (e, i) => {
   console.log(i);
   const todo = e.target.parentElement.parentElement;
-  if (e.target.value === "done") {
+  if (e.target.value === "done" && i === tasksArray.length-1) {
+    todo.classList.add("completedEnd");
+  }
+  else if (e.target.value === "done") {
     todo.classList.add("completed");
   } else {
     todo.classList.remove("completed");
   }
+}
 
+const inProgress = (e, i) => {
+  const todo = e.target.parentElement.parentElement;
+  if (e.target.value === "doing" && i === tasksArray.length-1) {
+    todo.classList.add("inProgressEnd");
+  }
+  else if (e.target.value === "doing") {
+    todo.classList.add("inProgress");
+  } else {
+    todo.classList.remove("inProgress");
+  }
 }

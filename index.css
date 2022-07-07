@@ -120,6 +120,7 @@ form #filter {
   border-radius: 5px;
   padding: 10px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .todo .modification-button:hover {
   background-color: white;
@@ -132,6 +133,7 @@ form #filter {
   margin: 0 2vw;
   padding: 10px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .todo .erase-button:hover {
   background-color: white;
@@ -145,8 +147,20 @@ form #filter {
 
 .completed {
   text-decoration: line-through;
-  border-bottom-left-radius: 15px;
-  opacity: 0.5;
+  background-color: rgba(51, 182, 47, 0.504);
+}
+.completedEnd {
+  text-decoration: line-through;
+  background-color: rgba(51, 182, 47, 0.504);
+  border-radius: 0 0 20px 20px;
+}
+
+.inProgress {
+  background-color: rgba(10, 134, 243, 0.504);
+}
+.inProgressEnd {
+  background-color: rgba(10, 134, 243, 0.504);
+  border-radius: 0 0 20px 20px;
 }
 
 /* .fall {
