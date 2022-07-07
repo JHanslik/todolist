@@ -125,3 +125,7 @@ form button:hover {
 
 }
 
+.fa-trash,
+.fa-pen-to-square {
+  pointer-events: none;
+}
