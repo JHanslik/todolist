@@ -107,19 +107,23 @@ form #filter {
   position: absolute;
   width: 6%;
 }
-.todo .status select {
+.todo .status select{
+  background-color: rgba(0, 0, 0, 0);
   width: 100%;
   border: none;
   font-size: 20px;
+  border-bottom-left-radius: 15px;
 }
 .todo .modification-button {
   background-color: rgb(255, 178, 36);
   border: none;
   border-radius: 5px;
   padding: 10px;
+  transition: all 0.3s ease;
 }
-.active-modification-button {
-  display: none;
+.todo .modification-button:hover {
+  background-color: white;
+  color: rgb(255, 178, 36);
 }
 .todo .erase-button {
   background-color: rgb(238, 83, 83);
@@ -127,6 +131,11 @@ form #filter {
   border-radius: 5px;
   margin: 0 2vw;
   padding: 10px;
+  transition: all 0.3s ease;
+}
+.todo .erase-button:hover {
+  background-color: white;
+  color: rgb(238, 83, 83);
 }
 
 .fa-trash-can,
@@ -136,5 +145,11 @@ form #filter {
 
 .completed {
   text-decoration: line-through;
+  border-bottom-left-radius: 15px;
   opacity: 0.5;
 }
+
+/* .fall {
+  transform: translateY(8rem);
+  opacity: 0;
+} */

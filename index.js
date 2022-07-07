@@ -11,26 +11,28 @@ const onTaskSubmit = (event) => {
   event.preventDefault();
 
   // Todo DIV
-  const todoDiv = document.createElement("div");
+  const todoDiv = document.createElement("li");
   todoDiv.classList.add("todo");
 
   // Créer le Select
-  const newSelect = document.createElement("select");
-  newSelect.innerHTML = `<option value="todo">To do</option>
-        <option value="doing">Doing</option>
-        <option value="done">Done</option>`;
+  const newSelect = document.createElement("div");
+  newSelect.innerHTML = `<select name="" id="">
+  <option value="todo">To do</option>
+  <option value="doing">Doing</option>
+  <option value="done">Done</option>
+</select>`;
   newSelect.classList.add("status");
   newSelect.addEventListener("change", completion);
   todoDiv.appendChild(newSelect);
 
   // Li creation
-  const newTodo = document.createElement("li");
+  const newTodo = document.createElement("p");
   newTodo.innerText = todoImput.value;
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
 
   // Priority number
-  const newPriority = document.createElement("li");
+  const newPriority = document.createElement("p");
   newPriority.innerText = todoPriority.value;
   newPriority.classList.add("item-priority");
   todoDiv.appendChild(newPriority);
@@ -55,30 +57,33 @@ const onTaskSubmit = (event) => {
   todoPriority.value = "";
 };
 
-//  Delete Part
+//  Button Part
 
 const deleteChecked = (e) => {
   const item = e.target;
-  console.log(item);
+//   console.log(item);
   //   Delete Part
   if (item.classList[0] === "erase-button") {
     // supprimer toute la barre
     const todo = item.parentElement;
+    // todo.classList.add("fall")
+    // todo.addEventListener("transitionend", function() {
+    //     todo.remove ()
+    // })
     todo.remove();
   }
   //   modification part
   if (item.classList[0] === "modification-button") {
-    // supprimer toute la barre
-    const modification = item.parentNode.parentNode.firstChild;
-    modification.target.value;
+    const modification = item.parentNode.childNodes[1];
     console.log(modification);
+
   }
 };
 todoList.addEventListener("click", deleteChecked);
 
 const completion = (e) => {
   console.log(e.target.value);
-  const todo = e.target.parentElement;
+  const todo = e.target.parentElement.parentElement;
   if (e.target.value === "done") {
     todo.classList.add("completed");
   } else {
