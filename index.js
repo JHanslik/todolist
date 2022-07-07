@@ -59,20 +59,22 @@ const onTaskSubmit = (event) => {
 
 const deleteChecked = (e) => {
   const item = e.target;
+  console.log(item);
+  //   Delete Part
   if (item.classList[0] === "erase-button") {
     // supprimer toute la barre
     const todo = item.parentElement;
     todo.remove();
   }
+  //   modification part
+  if (item.classList[0] === "modification-button") {
+    // supprimer toute la barre
+    const modification = item.parentNode.parentNode.firstChild;
+    modification.target.value;
+    console.log(modification);
+  }
 };
 todoList.addEventListener("click", deleteChecked);
-
-// Modification Part
-
-const modification = () => {
-  console.log("ok");
-};
-modificationClass.addEventListener("click", modification);
 
 // Completion
 const completion = (e) => {
