@@ -6,89 +6,109 @@ const todoPriority = document.querySelector("#priority");
 const filterOption = document.querySelector("filter");
 const btn = document.getElementById("btn");
 
+let tasksArray = [];
+
 // FUNCTIONS
 const onTaskSubmit = (event) => {
   event.preventDefault();
 
-  // Todo DIV
-  const todoDiv = document.createElement("div");
-  todoDiv.classList.add("todo");
-
-  // Créer le Select
-  const newSelect = document.createElement("select");
-  newSelect.innerHTML = `<option value="todo">To do</option>
+  // ajout valeur au tableau
+  tasksArray.push({
+    task: todoImput.value,
+    priority: todoPriority.value,
+    status: "To do",
+  });
+  // console.log (tasksArray)
+  todoList.innerHTML = "";
+  tasksArray.forEach((task, i) => {
+    todoDiv = document.createElement("li");
+    todoList.appendChild(todoDiv);
+    // Todo Li
+    // const todoDiv = document.createElement("li");
+    todoDiv.classList.add("todo");
+    todoDiv.innerHTML = `<div class="status">
+        <select name="" id="select-${i}">
+        <option value="todo">To do</option>
         <option value="doing">Doing</option>
-        <option value="done">Done</option>`;
-  newSelect.classList.add("status");
-  newSelect.addEventListener("change", completion);
-  todoDiv.appendChild(newSelect);
+        <option value="done">Done</option>
+        </select>
+        </div>
+        
+        <p class = "todo-item">${tasksArray[i].task}</p>
+        
+        <p class="item-priority">${tasksArray[i].priority}</p>
+        
+        <button class="modification-button">
+        <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        
+        <button class="erase-button" id="erase-${i}">
+        <i class="fa-solid fa-trash-can"></i>
+        </button>
+        `;
 
-  // Li creation
-  const newTodo = document.createElement("li");
-  newTodo.innerText = todoImput.value;
-  newTodo.classList.add("todo-item");
-  todoDiv.appendChild(newTodo);
+    // status function
+    const newSelect = document.getElementById(`select-${i}`);
+    newSelect.addEventListener("change", (e) => {
+      completion(e, i);
+      inProgress(e, i);
+    });
 
-  // Priority number
-  const newPriority = document.createElement("li");
-  newPriority.innerText = todoPriority.value;
-  newPriority.classList.add("item-priority");
-  todoDiv.appendChild(newPriority);
+    // delete function
+    const delLine = document.getElementById(`erase-${i}`);
+    delLine.addEventListener("click", (e) => {
+      deleteChecked(e, i);
+    });
 
-  // modification button
-  const modificationButton = document.createElement("button");
-  modificationButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
-  modificationButton.classList.add("modification-button");
-  todoDiv.appendChild(modificationButton);
-
-  // Delete Button
-  const eraseButton = document.createElement("button");
-  eraseButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-  eraseButton.classList.add("erase-button");
-  todoDiv.appendChild(eraseButton);
-
-  // ToDo add to the list
-  todoList.appendChild(todoDiv);
-
-  //  Reset de la value
+    // filter function
+    // const filter = document.getElementById(`filter-${i}`)
+    // filter.addEventListener("change", (e) => {
+    //   filterTasks(e, i)
+    // })
+  });
+  // Reset de la value
   todoImput.value = "";
   todoPriority.value = "";
 };
-// Button Random
-const value1 = (todoImput.value = "");
-const value2 = (todoPriority.value = "");
-let strValue = `${value1}${value2}`;
-// const random = Math.ceil(Math.random() * strValue.length);
-// console.log(random);
-let newA = Array.from(strValue);
-console.log(newA);
 
-//  Delete Part
+// displayTask function
 
-const deleteChecked = (e) => {
-  const item = e.target;
-  //   Delete Part
-  if (item.classList[0] === "erase-button") {
-    // supprimer toute la barre
-    const todo = item.parentElement;
-    todo.remove();
-  }
-  if (item.classList[0] === "modification-button") {
-    // supprimer toute la barre
-    const modification = item.parentNode.childNodes[1];
+//  Button Part
 
-    console.log(modification.innerText);
-  }
-};
-todoList.addEventListener("click", deleteChecked);
-
-// Completion
-const completion = (e) => {
-  console.log(e.target.value);
+const deleteChecked = (e, i) => {
+  console.log(i);
   const todo = e.target.parentElement;
-  if (e.target.value === "done") {
+  // todo.remove()
+  tasksArray.splice(i, 1);
+  console.log(tasksArray);
+  // fontion display
+};
+//   modification part
+// if (item.classList[0] === "modification-button") {
+//   const modification = item.parentNode.childNodes[1];
+//   console.log(modification);
+
+// };
+
+const completion = (e, i) => {
+  console.log(i);
+  const todo = e.target.parentElement.parentElement;
+  if (e.target.value === "done" && i === tasksArray.length - 1) {
+    todo.classList.add("completedEnd");
+  } else if (e.target.value === "done") {
     todo.classList.add("completed");
   } else {
     todo.classList.remove("completed");
+  }
+};
+
+const inProgress = (e, i) => {
+  const todo = e.target.parentElement.parentElement;
+  if (e.target.value === "doing" && i === tasksArray.length - 1) {
+    todo.classList.add("inProgressEnd");
+  } else if (e.target.value === "doing") {
+    todo.classList.add("inProgress");
+  } else {
+    todo.classList.remove("inProgress");
   }
 };

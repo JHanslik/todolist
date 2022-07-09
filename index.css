@@ -69,7 +69,7 @@ form button:hover {
   background-color: #39b2d9;
   color: white;
 }
-form #filter {
+form .filter {
   border: solid 3px black;
   border-radius: 10px;
 }
@@ -107,19 +107,24 @@ form #filter {
   position: absolute;
   width: 6%;
 }
-.todo .status select {
+.todo .status select{
+  background-color: rgba(0, 0, 0, 0);
   width: 100%;
   border: none;
   font-size: 20px;
+  border-bottom-left-radius: 15px;
 }
 .todo .modification-button {
   background-color: rgb(255, 178, 36);
   border: none;
   border-radius: 5px;
   padding: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-.active-modification-button {
-  display: none;
+.todo .modification-button:hover {
+  background-color: white;
+  color: rgb(255, 178, 36);
 }
 .todo .erase-button {
   background-color: rgb(238, 83, 83);
@@ -127,6 +132,12 @@ form #filter {
   border-radius: 5px;
   margin: 0 2vw;
   padding: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.todo .erase-button:hover {
+  background-color: white;
+  color: rgb(238, 83, 83);
 }
 
 .fa-trash-can,
@@ -136,5 +147,23 @@ form #filter {
 
 .completed {
   text-decoration: line-through;
-  opacity: 0.5;
+  background-color: rgba(51, 182, 47, 0.504);
 }
+.completedEnd {
+  text-decoration: line-through;
+  background-color: rgba(51, 182, 47, 0.504);
+  border-radius: 0 0 20px 20px;
+}
+
+.inProgress {
+  background-color: rgba(10, 134, 243, 0.504);
+}
+.inProgressEnd {
+  background-color: rgba(10, 134, 243, 0.504);
+  border-radius: 0 0 20px 20px;
+}
+
+/* .fall {
+  transform: translateY(8rem);
+  opacity: 0;
+} */
