@@ -18,15 +18,25 @@ const onTaskSubmit = (event) => {
     priority: todoPriority.value,
     status: "To do",
   });
-  // console.log (tasksArray)
-  todoList.innerHTML = "";
+  displayTasks()
+  
+  // Reset de la value
+  todoImput.value = "";
+  todoPriority.value = "";
+
+};
+
+
+
+// fonction pour push dans le tableau
+const displayTasks = array => {
+  // reset de todoList dans le DOM
+  todoList.innerHTML = ""
+
+  // boucle pour insérer éléments dans le dom
   tasksArray.forEach((task, i) => {
-    todoDiv = document.createElement("li");
-    todoList.appendChild(todoDiv);
-    // Todo Li
-    // const todoDiv = document.createElement("li");
-    todoDiv.classList.add("todo");
-    todoDiv.innerHTML = `<div class="status">
+    todoList.innerHTML += `<li class="todo">
+        <div class="status">
         <select name="" id="select-${i}">
         <option value="todo">To do</option>
         <option value="doing">Doing</option>
@@ -42,9 +52,10 @@ const onTaskSubmit = (event) => {
         <i class="fa-solid fa-pen-to-square"></i>
         </button>
         
-        <button class="erase-button" id="erase-${i}">
+        <button class="erase-button" id="erase-${i}" onclick="deleteChecked()">
         <i class="fa-solid fa-trash-can"></i>
         </button>
+        </li>
         `;
 
     // status function
@@ -54,11 +65,12 @@ const onTaskSubmit = (event) => {
       inProgress(e, i);
     });
 
-    // delete function
-    const delLine = document.getElementById(`erase-${i}`);
-    delLine.addEventListener("click", (e) => {
-      deleteChecked(e, i);
-    });
+    // // delete function
+    // const delLine = document.getElementById(`erase-${i}`);
+    // delLine.addEventListener("click", (e) => {
+    //   // console.log (e)
+    //   deleteChecked(e, i);
+    // });
 
     // filter function
     // const filter = document.getElementById(`filter-${i}`)
@@ -66,22 +78,16 @@ const onTaskSubmit = (event) => {
     //   filterTasks(e, i)
     // })
   });
-  // Reset de la value
-  todoImput.value = "";
-  todoPriority.value = "";
-};
+}
 
 // displayTask function
 
 //  Button Part
 
-const deleteChecked = (e, i) => {
-  console.log(i);
-  const todo = e.target.parentElement;
-  // todo.remove()
-  tasksArray.splice(i, 1);
+const deleteChecked = () => {
+  tasksArray.splice(this, 1);
+  displayTasks()
   console.log(tasksArray);
-  // fontion display
 };
 //   modification part
 // if (item.classList[0] === "modification-button") {
