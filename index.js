@@ -4,7 +4,7 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const todoPriority = document.querySelector("#priority");
 const filterOption = document.querySelector("filter");
-// const todoStatus = document.querySelector(".status")
+const btn = document.getElementById("btn");
 
 // FUNCTIONS
 const onTaskSubmit = (event) => {
@@ -54,24 +54,30 @@ const onTaskSubmit = (event) => {
   todoImput.value = "";
   todoPriority.value = "";
 };
+// Button Random
+const value1 = (todoImput.value = "");
+const value2 = (todoPriority.value = "");
+let strValue = `${value1}${value2}`;
+// const random = Math.ceil(Math.random() * strValue.length);
+// console.log(random);
+let newA = Array.from(strValue);
+console.log(newA);
 
 //  Delete Part
 
 const deleteChecked = (e) => {
   const item = e.target;
-  console.log(item);
   //   Delete Part
   if (item.classList[0] === "erase-button") {
     // supprimer toute la barre
     const todo = item.parentElement;
     todo.remove();
   }
-  //   modification part
   if (item.classList[0] === "modification-button") {
     // supprimer toute la barre
-    const modification = item.parentNode.parentNode.firstChild;
-    modification.target.value;
-    console.log(modification);
+    const modification = item.parentNode.childNodes[1];
+
+    console.log(modification.innerText);
   }
 };
 todoList.addEventListener("click", deleteChecked);

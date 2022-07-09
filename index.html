@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>ToDoList</title>
-    </head>
-    <body>
-        <header>
-            <h1>To Do List</h1>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>ToDoList</title>
+  </head>
+  <body>
+    <header>
+      <h1>To Do List</h1>
+    </header>
 
-        <main>
-            <form>
-                <input type="text" placeholder="Add new task" class="todo-input">
-                <select name="Priority" id="priority">
-                    <option value="">Priority</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <button class="todo-button" type="submit" onclick="onTaskSubmit(event)">
-                    <i class="fa-solid fa-square-plus"></i>
-                </button>
-                <select name="Filter" id="filter">
-                    <option value="">Filters</option>
-                    <option value="Priority">Priority</option>
-                    <option value="To do">To do</option>
-                    <option value="Doing">Doing</option>
-                    <option value="Done">Done</option>
-                    <option value="All">All</option>
-                </select>
-            </form>
-            <div class="todo-container">
-                <ul class="todo-list">
-                    
-                </ul>
-            </div>
-        </main>
-        <script src="./index.js"></script>
-    </body>
+    <main>
+      <form>
+        <input type="text" placeholder="Add new task" class="todo-input" />
+        <select name="Priority" id="priority">
+          <option value="">Priority</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button class="todo-button" type="submit" onclick="onTaskSubmit(event)">
+          <i class="fa-solid fa-square-plus"></i>
+        </button>
+        <button id="btn">Random</button>
+        <select name="Filter" id="filter">
+          <option value="">Filters</option>
+          <option value="Priority">Priority</option>
+          <option value="To do">To do</option>
+          <option value="Doing">Doing</option>
+          <option value="Done">Done</option>
+          <option value="All">All</option>
+        </select>
+      </form>
+      <div class="todo-container">
+        <ul class="todo-list"></ul>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
 </html>
 
 <!-- <select name="" id="">
