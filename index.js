@@ -59,10 +59,10 @@ const onTaskSubmit = (event) => {
         })
 
         // filter function
-        const filter = document.getElementById(`filter-${i}`)
-        filter.addEventListener("change", (e) => {
-          filterTasks(e, i)
-        })
+        // const filter = document.getElementById(`filter-${i}`)
+        // filter.addEventListener("change", (e) => {
+        //   filterTasks(e, i)
+        // })
         
         
     })
@@ -70,15 +70,20 @@ const onTaskSubmit = (event) => {
   todoImput.value = "";
   todoPriority.value = ""
 }
-    
+
+// displayTask function
+
+
+
 //  Button Part
 
 const deleteChecked = (e, i) => {
   console.log (i)
   const todo = e.target.parentElement;
-    todo.remove()
+    // todo.remove()
     tasksArray.splice(i, 1)
     console.log (tasksArray)
+    // fontion display
 }
   //   modification part
   // if (item.classList[0] === "modification-button") {

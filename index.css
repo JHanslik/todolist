@@ -69,7 +69,7 @@ form button:hover {
   background-color: #39b2d9;
   color: white;
 }
-form #filter {
+form .filter {
   border: solid 3px black;
   border-radius: 10px;
 }
