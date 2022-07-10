@@ -3,10 +3,10 @@ const todoImput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const todoPriority = document.querySelector("#priority");
-let todoStatus 
+let todoStatus;
 const btn = document.getElementById("btn");
-const filterSelect = document.getElementById("filter")
-const todoRandom = document.getElementById("random")
+const filterSelect = document.getElementById("filter");
+const todoRandom = document.getElementById("random");
 let tasksArray = [];
 
 
@@ -18,24 +18,20 @@ const onTaskSubmit = (event) => {
     task: todoImput.value,
     priority: todoPriority.value,
     status: "Todo",
-    class: ""
-  }
+    class: "",
+  };
   tasksArray.push(task);
-  displayTasks()
-  
+  displayTasks();
+
   // Reset de la value
   todoImput.value = "";
   todoPriority.value = "";
-
 };
 
-
-
 // fonction pour push dans le tableau
-const displayTasks = array => {
-
+const displayTasks = (array) => {
   // reset de todoList dans le DOM
-  todoList.innerHTML = ""
+  todoList.innerHTML = "";
 
   // boucle pour insérer éléments dans le dom
   tasksArray.forEach((task, i) => {
@@ -56,26 +52,22 @@ const displayTasks = array => {
       </button>
     </li>
     `;
-    
+
     // console.log (tasksArray)
   });
-
-}
-
+};
 
 //  Button Part
 
 const deleteChecked = (i) => {
   tasksArray.splice(i, 1);
-  displayTasks()
+  displayTasks();
 };
 
-
-
 // Edit Function
-const edit = (i)  => {
-  let liTask = document.getElementById(`item-${i}`)
-  let task = tasksArray[i]
+const edit = (i) => {
+  let liTask = document.getElementById(`item-${i}`);
+  let task = tasksArray[i];
 
   liTask.innerHTML = `
   <div class="status">
@@ -106,59 +98,51 @@ const edit = (i)  => {
   <button class="erase-button" id="modify-${i}" onclick="modify(${i})">
     <i class="fa-solid fa-check"></i>
   </button>
-  `
-
-}
+  `;
+};
 
 // Status Function
 const completion = (i) => {
-  const select = document.getElementById(`item-${i}-select`)
+  const select = document.getElementById(`item-${i}-select`);
   const todo = select.parentElement.parentElement;
   if (select.value === "Done" && i === tasksArray.length - 1) {
-    tasksArray[i].class = "completedEnd"
+    tasksArray[i].class = "completedEnd";
     todo.classList.add("completedEnd");
-  }
-  else if (select.value === "Doing" && i === tasksArray.length - 1) {
-    tasksArray[i].class = "inProgressEnd"
+  } else if (select.value === "Doing" && i === tasksArray.length - 1) {
+    tasksArray[i].class = "inProgressEnd";
     todo.classList.add("inProgressEnd");
-  }
-  else if (select.value === "Done") {
-    tasksArray[i].class = "completed"
+  } else if (select.value === "Done") {
+    tasksArray[i].class = "completed";
     todo.classList.add("completed");
-  }
-  else if (select.value === "Doing") {
-    tasksArray[i].class = "inProgress"
+  } else if (select.value === "Doing") {
+    tasksArray[i].class = "inProgress";
     todo.classList.add("inProgress");
-  }
-  else {
-    tasksArray[i].class = ""
+  } else {
+    tasksArray[i].class = "";
     todo.classList.remove("completed");
   }
 };
 
-
 // Edit Validation Function
 const modify = (i) => {
-  let input = document.getElementById(`item-${i}-input`)
-  let select = document.getElementById(`item-${i}-select`)
-  let priority = document.getElementById(`item-${i}-priority`)
-  tasksArray[i].task = input.value
-  tasksArray[i].priority = priority.value
-  tasksArray[i].status = select.value
-  displayTasks()
-}
-
+  let input = document.getElementById(`item-${i}-input`);
+  let select = document.getElementById(`item-${i}-select`);
+  let priority = document.getElementById(`item-${i}-priority`);
+  tasksArray[i].task = input.value;
+  tasksArray[i].priority = priority.value;
+  tasksArray[i].status = select.value;
+  displayTasks();
+};
 
 // Filter function (not working)
 function filter(status) {
-  console.log(tasksArray)
-  let filteredTasks = tasksArray.filter(function(task) {
-    return task.status === status || status === "all"
-  })
-  displayTasks(filteredTasks)
-  console.log ("ué")
+  console.log(tasksArray);
+  let filteredTasks = tasksArray.filter(function (task) {
+    return task.status === status || status === "all";
+  });
+  displayTasks(filteredTasks);
+  console.log("ué");
 }
-
 
 // Random Function
 const random = () => {
@@ -168,34 +152,33 @@ const random = () => {
     "Faire le gateau pour l'anniversaire",
     "Finir le projet Javascript",
     "Chercher une alternance",
-  ]
+  ];
 
   let task = {
     task: randomTasks[Math.floor(Math.random() * randomTasks.length)],
     priority: Math.floor(Math.random() * 6),
     status: "Todo",
-    class: ""
-  }
+    class: "",
+  };
 
-  tasksArray.push (task)
-  displayTasks(task)
-}
-todoRandom.addEventListener ("click", random)
-
+  tasksArray.push(task);
+  displayTasks(task);
+};
+todoRandom.addEventListener("click", random);
 
 // Priority Order Function
 function orderPriority(operator) {
-  var sortedTasks = []
+  var sortedTasks = [];
 
   if (operator === "+") {
-    sortedTasks = tasksArray.sort(function(a, b) {
-      return b.priority - a.priority
-    })
+    sortedTasks = tasksArray.sort(function (a, b) {
+      return b.priority - a.priority;
+    });
   } else {
-    sortedTasks = tasksArray.sort(function(a, b) {
-      return a.priority - b.priority
-    })
+    sortedTasks = tasksArray.sort(function (a, b) {
+      return a.priority - b.priority;
+    });
   }
 
-  displayTasks(sortedTasks)
+  displayTasks(sortedTasks);
 }

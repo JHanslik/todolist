@@ -22,7 +22,12 @@
 
     <main>
       <form>
-        <input type="text" placeholder="Add new task" class="todo-input" maxlength="55"/>
+        <input
+          type="text"
+          placeholder="Add new task"
+          class="todo-input"
+          maxlength="55"
+        />
         <select name="Priority" id="priority">
           <option value="">Priority</option>
           <option value="1">1</option>
@@ -41,17 +46,25 @@
         </button>
         <div>
           <button type="button" onclick="filter('all')" class="btn">All</button>
-          <button type="button" onclick="filter('Todo')" class="btn">To do</button>
-          <button type="button" onclick="filter('Doing')" class="btn">Doing</button>
-          <button type="button" onclick="filter('Done')" class="btn">Done</button>
-          <button type="button" onclick="orderPriority('+')" class="btn">Priority +</button>
-          <button type="button" onclick="orderPriority('-')" class="btn">Priority -</button>
+          <button type="button" onclick="filter('Todo')" class="btn">
+            To do
+          </button>
+          <button type="button" onclick="filter('Doing')" class="btn">
+            Doing
+          </button>
+          <button type="button" onclick="filter('Done')" class="btn">
+            Done
+          </button>
+          <button type="button" onclick="orderPriority('+')" class="btn">
+            Priority +
+          </button>
+          <button type="button" onclick="orderPriority('-')" class="btn">
+            Priority -
+          </button>
         </div>
       </div>
       <div class="todo-container">
-        <ul class="todo-list">
-
-        </ul>
+        <ul class="todo-list"></ul>
       </div>
     </main>
     <script src="./index.js"></script>
