@@ -30,11 +30,15 @@ main {
   box-shadow: 0px 0px 21px 11px rgba(0, 0, 0, 0.71);
 }
 
-form {
+form, .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 20vh;
+  min-height: 10vh;
+  padding: 0 2vw;
+}
+.buttons {
+  justify-content: space-evenly;
 }
 
 form input {
@@ -63,9 +67,19 @@ form button {
   cursor: pointer;
   transition: all 0.3s ease;
   color: #39b2d9;
-  margin-right: 2vw;
 }
-form button:hover {
+.btn {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: solid 3px black;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #39b2d9;
+}
+form button:hover,
+.btn:hover {
   background-color: #39b2d9;
   color: white;
 }
@@ -90,15 +104,38 @@ form .filter {
   font-size: 1.5rem;
   border-top: solid 2px black;
   position: relative;
+  width: 100%;
 }
-.todo .todo-item {
+.todo form {
+  min-height: auto;
+  width: 100%;
+}
+.todo-item {
   width: 80%;
   margin-left: 15%;
 }
-.todo .item-priority {
+.todo-item-edit {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: solid 3px black;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  width: 80%;
+  margin-left: 15%;
+}
+.item-priority {
   margin: 0 2vw;
 }
-.todo .status {
+.item-priority-edit {
+  margin-right:2vw;
+  padding: 0.47rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: solid 3px black;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+.status {
   border-right: solid 2px red;
   padding: 0 10px;
   display: flex;
@@ -107,14 +144,14 @@ form .filter {
   position: absolute;
   width: 6%;
 }
-.todo .status select{
+.status select{
   background-color: rgba(0, 0, 0, 0);
   width: 100%;
   border: none;
   font-size: 20px;
   border-bottom-left-radius: 15px;
 }
-.todo .modification-button {
+.modification-button {
   background-color: rgb(255, 178, 36);
   border: none;
   border-radius: 5px;
@@ -122,11 +159,11 @@ form .filter {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.todo .modification-button:hover {
+.modification-button:hover {
   background-color: white;
   color: rgb(255, 178, 36);
 }
-.todo .erase-button {
+.erase-button {
   background-color: rgb(238, 83, 83);
   border: none;
   border-radius: 5px;
@@ -135,7 +172,7 @@ form .filter {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.todo .erase-button:hover {
+.erase-button:hover {
   background-color: white;
   color: rgb(238, 83, 83);
 }
